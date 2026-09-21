@@ -1,21 +1,21 @@
-<tool id="xcms4.readmsexperiment" name="XCMS 4: Build MsExperiment Data" version="@TOOL_VERSION@+galaxy@VERSION_SUFFIX@">
+<tool id="xcms4.readmsexperiment" name="xcms build MsExperiment data (build raw.RData)" version="@TOOL_VERSION@+galaxy@VERSION_SUFFIX@" profile="@PROFILE@">
     <description>Imports mass-spectrometry and sample data files</description>
 
     <macros>
         <import>macros.xml</import>
-        <import>macros_xcms4.xml</import>
+        <import>macros_xcms.xml</import>
     </macros>
 
     <expand macro="requirements"/>
     <required_files>
-        <include path="xcms4_read_msexperiment.r" />
-        <include path="xcms4_lib.r" />
+        <include path="xcms_read_msexperiment.r" />
+        <include path="lib.r" />
     </required_files>
     <expand macro="stdio"/>
     <expand macro="creators"/>
 
     <command><![CDATA[
-        @COMMAND_RSCRIPT@xcms4_read_msexperiment.r
+        @COMMAND_RSCRIPT@xcms_read_msexperiment.r
 
         #if $input.is_of_type("mzxml") or $input.is_of_type("mzml") or $input.is_of_type("netcdf"):
             #if $os.path.islink(str($input))
@@ -34,7 +34,7 @@
     </inputs>
 
     <outputs>
-        <data name="msexp_obj" format="rdata.msnbase.raw" label="${input.name.rsplit('.',1)[0]}.RData" from_work_dir="readmsexp.RData" />
+        <data name="msexp_obj" format="rdata.msnbase.raw" label="${input.name.rsplit('.',1)[0]}.raw.RData" from_work_dir="readmsexp.RData" />
     </outputs>
 
     <tests>
@@ -49,13 +49,6 @@
             </assert_stdout>
         </test>
     </tests>
-<!-- 
-    <creator>
-        <organization name="ABiMS TEAM"/>
-        <organization name="LABERCA based on Workflow4Metabolomics.org [W4M] previous development"/>
-        <organization url="https://www.eu-parc.eu/" name="PARC"/>
-    </creator> -->
-
     <help><![CDATA[
 
 @HELP_AUTHORS@
@@ -69,9 +62,9 @@ Description
 -----------
 
 Reads as set of XML-based mass-spectrometry data files and
-generates an MsExperiment object. 
+generates an xcms4::MsExperiment object. 
 
-.. _xcms 4: https://sneumann.github.io/xcms/index.html
+.. _xcms: https://sneumann.github.io/xcms/index.html
 
 
 -----------------
@@ -88,13 +81,15 @@ Upload File               mzxml,mzml,mzdata,netcdf
 
 The easier way to process is to create a Dataset Collection of the type List
 
+\
+
 **Downstream tools**
 
-=========================== ============== ====================
-Name                        Output file    Format
-=========================== ============== ====================
-xcms4.findChromPeaks        ``*``.RData    rdata.msnbase.raw
-=========================== ============== ====================
+========================== ================== ====================
+Name                        Output file       Format
+========================== ================== ====================
+xcms4.findChromPeaks        ``*``.raw.RData   rdata.msnbase.raw
+========================== ================== ====================
 
 
 **Choose your inputs**
@@ -103,28 +98,13 @@ Single file (recommended): You can put a single file as input. That way, you wil
 
 We recommend you to convert your raw files into **mzXML** in centroid mode (smaller files); this way the files will be compatible with the xmcs centWave algorithm.
 
-**We recommend you the following parameters:**
-
-Use Filtering: **True**
-
-Use Peak Picking: **True**
-
-Peak Peaking -Apply to MS Levels: **All Levels (1-)** : Centroid Mode
-
-Use zlib: **64**
-
-Binary Encoding: **64**
-
-m/z Encoding: **64**
-
-Intensity Encoding: **64**
-
+\
 
 ------------
 Output files
 ------------
 
-RData file: rdata.msnbase.raw format
+raw.RData file: rdata.msnbase.raw format
 
     | Rdata file containing MsExperiment R object that is necessary in the second step of the workflow "xcms.findChromPeaks".
 
