@@ -1,6 +1,6 @@
 # ==============================================================================
 # Project: Workflow4Metabolomics / Workflow4Exposomic PARC project
-# File: xcms4_lib.r
+# File: lib.r
 #
 # Description:
 # Utility functions used by Galaxy XCMS tools
