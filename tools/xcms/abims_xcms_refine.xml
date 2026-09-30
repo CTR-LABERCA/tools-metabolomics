@@ -77,7 +77,7 @@
             test 1 - MergeNeighboringPeaks method
         -->
         <test>
-            <param name="image" value="test-xset.merged.RData" ftype="rdata"/>
+            <param name="image" location="https://zenodo.org/records/22940496/files/test-xset.merged.RData" ftype="rdata"/>
             <conditional name="methods">
                 <param name="method" value="MergeNeighboringPeaks"/>
                 <param name="expandRt" value="2" />
@@ -100,7 +100,7 @@
             test 2 - FilterIntensity method
         -->
         <test>
-            <param name="image" value="test-xset.merged.RData" ftype="rdata"/>
+            <param name="image" location="https://zenodo.org/records/22940496/files/test-xset.merged.RData" ftype="rdata"/>
             <conditional name="methods">
                 <param name="method" value="FilterIntensity"/>
                 <param name="threshold" value="1e5" />
@@ -122,7 +122,7 @@
             test 3 - CleanPeaks method
         -->
         <test>
-            <param name="image" value="test-xset.merged.RData" ftype="rdata"/>
+            <param name="image" location="https://zenodo.org/records/22940496/files/test-xset.merged.RData" ftype="rdata"/>
             <conditional name="methods">
                 <param name="method" value="CleanPeaks"/>
                 <param name="maxPeakwidth" value="8" />

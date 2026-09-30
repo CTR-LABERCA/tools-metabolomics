@@ -196,7 +196,7 @@
 
     <tests>
         <test expect_num_outputs="2">
-            <param name="image" value="ko15.RData" ftype="rdata" />
+            <param name="image" location="https://zenodo.org/records/22940496/files/ko15.RData" ftype="rdata" />
             <conditional name="methods">
                 <param name="method" value="CentWave" />
                 <param name="ppm" value="25" />

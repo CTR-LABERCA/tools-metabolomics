@@ -89,7 +89,7 @@
     <tests>
         <!-- from merge -->
         <test expect_num_outputs="4">
-            <param name="image" value="test-xset.merged.RData" ftype="rdata"/>
+            <param name="image" location="https://zenodo.org/records/22940496/files/test-xset.merged.RData" ftype="rdata"/>
             <conditional name="methods">
                 <param name="method" value="PeakDensity"/>
                 <param name="bw" value="5"/>

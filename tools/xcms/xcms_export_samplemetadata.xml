@@ -8,13 +8,13 @@
 
     <expand macro="requirements"/>
     <required_files>
-        <include path="xcms_get_samplemetadata.r" />
+        <include path="xcms_export_samplemetadata.r" />
         <include path="lib.r" />
     </required_files>
     <expand macro="stdio"/>
 
     <command><![CDATA[
-        @COMMAND_RSCRIPT@xcms_get_samplemetadata.r
+        @COMMAND_RSCRIPT@xcms_export_samplemetadata.r
 
         images 'c("${"\",\"".join(map(str, $images))}")'
     ]]></command>
@@ -29,7 +29,7 @@
 
     <tests>
         <test>
-            <param name="images" value="ko15.raw.RData,ko16.raw.RData,wt15.raw.RData,wt16.raw.RData" ftype="rdata"/>
+            <param name="images" location="https://zenodo.org/records/22940496/files/ko15.raw.RData,https://zenodo.org/records/22940496/files/ko16.raw.RData,https://zenodo.org/records/22940496/files/wt15.raw.RData,https://zenodo.org/records/22940496/files/wt16.raw.RData" ftype="rdata"/>
             <output name="sampleMetadataOutput" file="templateSampleMetadata.tsv" />
         </test>
     </tests>

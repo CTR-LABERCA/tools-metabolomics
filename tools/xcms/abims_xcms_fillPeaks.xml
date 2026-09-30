@@ -52,7 +52,7 @@
     </outputs>
     <tests>
         <test expect_num_outputs="3">
-            <param name="image" value="test-xset.merged.group.retcor.group.RData" ftype="rdata"/>
+            <param name="image" location="https://zenodo.org/records/22940496/files/test-xset.merged.group.retcor.group.RData" ftype="rdata"/>
             <section name="peaklist">
                 <param name="peaklistBool" value="true"/>
                 <param name="convertRTMinute" value="true"/>
