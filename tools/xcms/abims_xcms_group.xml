@@ -108,11 +108,6 @@
             </conditional>
             <!-- <expand macro="test_file_load_single"/> -->
             <assert_stdout>
-                <!-- <has_text text="PeakDensity" />
-                <has_text text="bw	5" />
-                <has_text text="minFraction	0.5" />
-                <has_text text="binSize	0.01" />
-                <has_text text="maxFeatures	50" /> -->
                 <has_text text="Object of class XcmsExperiment" />
                 <has_text text="Spectra: MS1 (5112)" />
                 <has_text text="Experiment data: 4 sample(s)" />

@@ -39,7 +39,7 @@
 
     <tests>
         <test expect_num_outputs="1">
-            <param name="input" value="ko15.CDF"  ftype="netcdf" />
+            <param name="input" location="https://zenodo.org/records/22940496/files/ko15.CDF"  ftype="netcdf" />
             <!-- <output name="msexp_obj" file="ko15.msexp.RData"/> -->
             <assert_stdout>
                 <has_text text="Object of class MsExperiment" />

@@ -40,7 +40,7 @@
 
     <tests>
         <test expect_num_outputs="1">
-            <param name="images" value="ko15-xset.RData,ko16-xset.RData,wt15-xset.RData,wt16-xset.RData" ftype="rdata"/>
+            <param name="images" location="https://zenodo.org/records/22940496/files/ko15-xset.RData,https://zenodo.org/records/22940496/files/ko16-xset.RData,https://zenodo.org/records/22940496/files/wt15-xset.RData,https://zenodo.org/records/22940496/files/wt16-xset.RData" ftype="rdata"/>
             <!-- <expand macro="test_file_load_single"/> -->
             <param name="sampleMetadata" value="sampleMetadata.tsv" />
             <assert_stdout>
